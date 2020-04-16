@@ -12,6 +12,7 @@ import org.vcah.util.validation.ValidDeckType;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 @Builder
@@ -31,5 +32,7 @@ public class Deck
 	@ValidDeckType
 	private String type;
 	private String owner;
-	private List<Card> cards = new ArrayList<>();
+
+	@Builder.Default
+	private List<String> cards = new ArrayList<>();
 }

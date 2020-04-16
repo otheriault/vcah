@@ -22,10 +22,10 @@ public class Game
 	private String id;
 	private String name;
 	private String owner;
-	private String czar;
-	private List<String> blackDeck;
-	private List<String> whiteDeck;
-	private Map<String, GamePlayerInfo> playerInfo;
-	private String state;
+	private List<String> players;
+	private Deck blackDeck;
+	private Deck whiteDeck;
 
+	private String czar;
+	private String blackCard;
 }

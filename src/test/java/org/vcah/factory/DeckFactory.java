@@ -1,12 +1,11 @@
 package org.vcah.factory;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.stereotype.Component;
-import org.vcah.model.Card;
 import org.vcah.model.Deck;
 import org.vcah.model.DeckType;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class DeckFactory
@@ -39,14 +38,12 @@ public class DeckFactory
 		return deck;
 	}
 
-	protected List<Card> buildCards(final int numCards)
+	protected List<String> buildCards(final int numCards)
 	{
-		final List<Card> cards = new ArrayList<>();
+		final List<String> cards = new ArrayList<>();
 		for (int i = 0; i < numCards; i++)
 		{
-			final Card card = new Card();
-			card.setText(CARD_TEXT_PREFIX + i);
-			cards.add(card);
+			cards.add(CARD_TEXT_PREFIX + i);
 		}
 		return cards;
 	}

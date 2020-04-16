@@ -99,10 +99,7 @@ public class DeckController
 	{
 		LOG.trace("Adding card to deck [" + id + "]: " + card);
 		final Deck deck = getDeckById(id);
-		if (deckService.containsCard(deck, card))
-		{
-			throw new DuplicateCardException("Deck with id [" + id + "] already contains a card with text [" + card.getText() + "].");
-		}
+		deckService.addCard(deck, card);
 	}
 
 	@DeleteMapping(path = "/{id}/cards")

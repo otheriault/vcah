@@ -2,9 +2,10 @@ package org.vcah.service;
 
 import org.springframework.stereotype.Service;
 import org.vcah.api.CardNotFoundException;
-import org.vcah.repository.DeckRepository;
+import org.vcah.api.DuplicateCardException;
 import org.vcah.model.Card;
 import org.vcah.model.Deck;
+import org.vcah.repository.DeckRepository;
 
 @Service
 public class DeckServiceImpl implements DeckService
@@ -20,6 +21,17 @@ public class DeckServiceImpl implements DeckService
 	public boolean containsCard(Deck deck, Card card)
 	{
 		return deck.getCards().contains(card);
+	}
+
+	@Override
+	public void addCard(final Deck deck, final Card card) throws DuplicateCardException
+	{
+		if (containsCard(deck, card))
+		{
+			throw new DuplicateCardException("Deck with id [" + deck.getId() + "] already contains a card with text [" + card.getText() + "].");
+		}
+		deck.getCards().add(card.getText());
+		deckRepository.save(deck);
 	}
 
 	@Override

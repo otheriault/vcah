@@ -9,8 +9,8 @@ spring:
       port: 0
 vcah:
   deck:
-    default:
-      filenames: default-black-deck.txt, default-white-deck.txt
+    black: default-black-deck.txt
+    white: default-white-deck.txt
 ---
 spring:
   profiles: test
