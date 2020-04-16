@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: dev
+---
+spring:
+  profiles: dev
+  data:
+    mongodb:
+      port: 0
+vcah:
+  deck:
+    default:
+      filenames: default-black-deck.txt, default-white-deck.txt
+---
+spring:
+  profiles: test
+  data:
+    mongodb:
+      port: 0
+vcah:
+  deck:
+    default:
+      filenames: 
